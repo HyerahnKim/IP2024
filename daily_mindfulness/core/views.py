@@ -2,12 +2,12 @@ import logging # from django.utils.log import logger
 import random
 import urllib.parse
 import requests
+import pandas as pd
 
 from django.db.models import Sum, Q
 from django.conf import settings
 from django.shortcuts import redirect
 from django.http import JsonResponse
-
 
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
@@ -17,8 +17,8 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from .models import Meditation, Quote, Tracker
 from .serializers import MeditationSerializer, QuoteSerializer, TrackerSerializer
-#frontend
-from .utils import load_sleep_and_meditation_data
+
+from .utils import load_sleep_data, load_meditation_data, merge_sleep_and_meditation, analyze_sleep_meditation
 from django.shortcuts import render, redirect
 
 def index(request):
@@ -34,9 +34,38 @@ def log_meditation_page(request):
     return render(request, 'log_meditation.html')
 
 def dataset_view(request):
-    df = load_sleep_and_meditation_data()
-    data_html = df.to_html()  # Convert DataFrame to HTML string
+    # Load individual datasets
+    sleep_df = load_sleep_data()
+    meditation_df = load_meditation_data()
+
+    # Merge the datasets
+    df = merge_sleep_and_meditation(sleep_df, meditation_df)
+
+    # Convert DataFrame to HTML
+    data_html = df.to_html()
+
     return render(request, 'dataset.html', {'data_html': data_html})
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def combined_data_api(request):
+    sleep_df = load_sleep_data()
+    meditation_df = load_meditation_data()
+    # Merge the two datasets
+    combined_df = merge_sleep_and_meditation(sleep_df, meditation_df)
+    return JsonResponse(combined_df.to_dict(orient="records"), safe=False)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def ai_analysis_api(request):
+    """
+    API endpoint to return AI-based insights on meditation and sleep.
+    """
+    df = analyze_sleep_meditation()
+    return JsonResponse(df.to_dict(orient="records"), safe=False)
+
+
 
 # Initialize the logger
 logger = logging.getLogger(__name__)
@@ -88,6 +117,14 @@ def log_meditation(request):
 
             # Process the POST request to log a meditation session
             data = request.data.copy()
+
+            # ✅ Ensure timestamp is properly handled
+            if 'timestamp' in data and data['timestamp']:
+                try:
+                    data['timestamp'] = pd.to_datetime(data['timestamp'])
+                except ValueError:
+                    return Response({"error": "Invalid timestamp format"}, status=400)
+
             serializer = TrackerSerializer(data=data, context={'request': request})  # Pass the request context
 
             if serializer.is_valid():

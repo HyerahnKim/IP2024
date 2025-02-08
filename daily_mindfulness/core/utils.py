@@ -1,48 +1,78 @@
 import pandas as pd
-import os
-from django.conf import settings
 from .models import Tracker
+from datetime import datetime
+from django.contrib.auth.models import User
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 
-def load_sleep_and_meditation_data():
-    """Loads sleep data from CSV and combines it with meditation logs from the database."""
 
-    # 1️⃣ Load Sleep Data from CSV
-    sleep_file_path = os.path.join(settings.BASE_DIR, "data", "sleep.csv")
 
-    try:
-        sleep_df = pd.read_csv(sleep_file_path)
-    except FileNotFoundError:
-        print("⚠️ Sleep CSV file not found!")
-        return None
+def load_sleep_data(file_path="data/sleep.csv"):
+    """
+    Load sleep data from a CSV file and preprocess it.
+    """
+    sleep_df = pd.read_csv(file_path)
 
-    # Ensure column names are correct (modify if needed)
-    sleep_df.columns = ["Date", "Sleep Score", "Resting HR", "Body Battery", "Pulse Ox",
-                        "Respiration", "HRV", "Quality", "Duration", "Sleep Need",
-                        "Bedtime", "Wake Time"]
+    # Normalize column names (strip spaces, lowercase)
+    sleep_df.columns = sleep_df.columns.str.strip().str.lower()
 
-    # Convert date to proper format
-    sleep_df["Date"] = pd.to_datetime(sleep_df["Date"]).dt.date  # Keep only date part
+    # Ensure the date column is properly formatted
+    if "date" not in sleep_df.columns:
+        raise KeyError(f"Expected 'date' column not found. Found: {sleep_df.columns.tolist()}")
 
-    # 2️⃣ Load Meditation Logs from Django Database
-    meditation_logs = Tracker.objects.filter(activity_type="meditation").values(
-        "user__username", "timestamp", "duration"
-    )
+    # Get the current year
+    current_year = datetime.now().year
 
-    meditation_df = pd.DataFrame(list(meditation_logs))
+    # Convert 'date' column to datetime, setting the current year
+    sleep_df["date"] = pd.to_datetime(sleep_df["date"] + f" {current_year}", format="%d %b %Y", errors="coerce").dt.date
 
-    if meditation_df.empty:
-        print("⚠️ No meditation data found in the database!")
-        return None
+    return sleep_df
 
-    # Convert timestamp to Date format
-    meditation_df["timestamp"] = pd.to_datetime(meditation_df["timestamp"]).dt.date
-    meditation_df.rename(columns={"timestamp": "Date", "duration": "Meditation Duration"}, inplace=True)
+def load_meditation_data():
+    """
+    Load meditation data from the Django database.
+    """
+    meditation_logs = Tracker.objects.filter(activity_type="meditation").values("timestamp", "duration")
 
-    # 3️⃣ Merge Sleep & Meditation Data on Date
-    merged_df = pd.merge(sleep_df, meditation_df, on="Date", how="left")
+    # Convert to DataFrame
+    meditation_df = pd.DataFrame.from_records(meditation_logs)
 
-    # Fill NaN values for days where no meditation was logged
-    merged_df["Meditation Duration"].fillna(0, inplace=True)
+    # Convert timestamp to just the date
+    meditation_df["date"] = pd.to_datetime(meditation_df["timestamp"]).dt.date
 
-    return merged_df
+    return meditation_df
+
+def merge_sleep_and_meditation(sleep_df, meditation_df):
+    """
+    Merge sleep and meditation data based on the date.
+    """
+    combined_df = pd.merge(sleep_df, meditation_df, on="date", how="outer").fillna(0)
+    return combined_df
+
+def analyze_sleep_meditation():
+    """
+    Uses AI to analyze the relationship between sleep quality and meditation habits.
+    """
+
+    # Load merged data
+    sleep_df = load_sleep_data("data/sleep.csv")
+    meditation_df = load_meditation_data()
+    df = merge_sleep_and_meditation(sleep_df, meditation_df)
+
+    # Ensure numerical values for AI analysis
+    df["meditation_duration"] = df["duration_y"].fillna(0).astype(int)
+    df["sleep_score"] = df["score"].fillna(df["score"].mean()).astype(int)  # Replace NaN with mean
+
+    # Features (X) and Target (y)
+    X = df[["meditation_duration"]]
+    y = df["sleep_score"]
+
+    # Train a simple linear regression model
+    model = LinearRegression()
+    model.fit(X, y)
+
+    # Predict sleep score based on meditation duration
+    df["predicted_sleep_score"] = model.predict(X)
+
+    return df

@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Dela Gothic One';
-    src: url('../fonts/DelaGothicOne-Regular.ttf') format('truetype');
-}
-
 body {
     font-family: "Chivo", serif;
     font-style: normal;
@@ -33,7 +28,7 @@ div{
     font-weight: bold;
     padding: 40px 30px 20px 30px;
     background-color: #f0e6c4;
-    z-index: ;
+    z-index: 1;
 }
 .box{
     margin: 20px 0px;
@@ -54,6 +49,10 @@ div{
 .blue-box{
     background-color: #447c9d;
     color: #f0e6c4;;
+}
+
+#meditationChart{
+    height: 400px;
 }
 .direction-row {
     display: flex;
@@ -219,9 +218,18 @@ select:focus {
     margin-top: 20px;
     text-align: center;
 }
+.chart-box{
+    width: 100%;
+    height: 600px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+}
 
 canvas {
     max-width: 100%;
+    height: 400px !important;
 }
 
 /* font with Brand Colors */
@@ -229,8 +237,9 @@ h1 { font-size: 24px;
     color: #447c9d;
     font-family: "Dela Gothic One", serif;
 }
+
 h2 { font-size: 20px;}
 h3 { font-size: 18px;}
 h4 { font-size: 16px;}
 h5 { font-size: 15px;}
-h6 { font-size: 14px;}
+h6 { font-size: 14px;}}

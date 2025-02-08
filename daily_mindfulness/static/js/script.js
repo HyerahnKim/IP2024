@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = '/meditation/log/';
         });
 
+        document.getElementById('viewDataset').addEventListener('click', () => {
+            window.location.href = '/view-dataset/';
+        });
+
+
         document.getElementById('logout').addEventListener('click', () => {
             localStorage.removeItem('token');
             localStorage.removeItem('username');

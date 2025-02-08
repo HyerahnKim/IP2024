@@ -19,7 +19,7 @@ class Tracker(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to Django's User model
     activity_type = models.CharField(max_length=50)
     duration = models.IntegerField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.activity_type} on {self.timestamp}"

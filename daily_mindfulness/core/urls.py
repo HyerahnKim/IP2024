@@ -3,7 +3,7 @@
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from . import views # Import views as a module instead of individual imports
+from . import views# Import views as a module instead of individual imports
 from rest_framework.authtoken.views import obtain_auth_token
 
 
@@ -23,6 +23,8 @@ urlpatterns = [
     path("spotify/login/", views.spotify_login, name="spotify_login"),
     path("callback/", views.spotify_callback, name="spotify_callback"),
     path('view-dataset/', views.dataset_view, name='view_dataset'),
+    path('api/combined-data/', views.combined_data_api, name='combined_data_api'),
+    path('api/ai-analysis/', views.ai_analysis_api, name='ai_analysis_api'),
 ]
 
 urlpatterns += [

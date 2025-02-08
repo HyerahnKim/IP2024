@@ -4,16 +4,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dataset View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep & Meditation Insights</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Data Output</h1>
-        <div id="data-output">
-            <!-- Your data will be inserted here -->
-            {{ data_html|safe }}
+    <div class="screen">
+        <h1>Sleep & Meditation Insights</h1>
+
+        <!-- Toggle Buttons to Show/Hide Data -->
+        <div class="toggle-buttons">
+            <button id="toggleMeditation">Meditation</button>
+            <button id="toggleSleep">Sleep Duration</button>
+            <button id="toggleSleepScore">Sleep Score</button>
+            <button id="toggleHeartRate">Rest Heart Rate</button>
+            <button id="toggleBodyBattery">Body Battery</button>
+            <button id="toggleHRV">HRV</button>
+        </div>
+        <div class="chart-box">
+            <!-- Chart Container -->
+            <canvas id="meditationSleepChart" style="height: 300px"></canvas>
+        </div>
+        <div class="box green-box">
+            <h2>🧠 AI Analysis</h2>
+            <p id="ai-insights">Loading AI insights...</p>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="{% static 'js/chart.js' %}"></script>
 </body>
 </html>

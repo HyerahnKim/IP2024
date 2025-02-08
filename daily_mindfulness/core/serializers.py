@@ -23,4 +23,9 @@ class TrackerSerializer(serializers.ModelSerializer):
         if not request:
             raise serializers.ValidationError("Request context is missing.")
         validated_data['user'] = request.user
+
+        # ✅ Handle custom timestamp (if provided)
+        if 'timestamp' in request.data:
+            validated_data['timestamp'] = request.data['timestamp']
+
         return super().create(validated_data)

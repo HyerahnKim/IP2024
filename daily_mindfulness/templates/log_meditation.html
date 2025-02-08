@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="screen">
+    <!-- Add Spotify Playlist Section -->
+    <img class="small-image" " src="https://static.vecteezy.com/system/resources/thumbnails/051/223/240/small/meditation-with-headphones-finding-peace-and-calm-png.png" alt="">
+    <div class="spotify-player">
+        <iframe id="musicPlayer"
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u?utm_source=generator&theme=0"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+        </iframe>
+    </div>
+
+    <div class="box blue-box">
+        <h1>Log New Meditation</h1>
+        <form id="logMeditationForm">
+
+            <div class="logInformation">
+                <div>
+                    <label for="duration">Duration (minutes):</label>
+                    <select id="duration" name="duration" required>
+                    <option value="10" selected>Select duration</option>
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="20">20 minutes</option>
+                    <option value="25">25 minutes</option>
+                    <option value="30">30 minutes</option>
+                    <option value="35">35 minutes</option>
+                    <option value="40">40 minutes</option>
+                    <option value="45">45 minutes</option>
+                    <option value="50">50 minutes</option>
+                    <option value="55">55 minutes</option>
+                    <option value="60">60 minutes</option>
+                </select>
+                </div>
+                <div>
+                <label for="duration">How focused were you? </label>
+                <div class="radio-box">
+                    <input type="radio" id="veryGood" name="veryGood" required>
+                    <label for="veryGood">very good </label>
+                    <input type="radio" id="good" name="good" required>
+                    <label for="good">quite good </label>
+                    <input type="radio" id="notSoGood" name="notSoGood" required>
+                    <label for="notSoGood">not so good </label>
+                    <input type="radio" id="notAtAll" name="notAtAll" required>
+                    <label for="notAtAll">not at all </label>
+                </div>
+                </div>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <button type="submit">Log Meditation</button>
+        </form>
+        <p id="errorMessage" class="error"></p>
+        <button id="backToDashboard">Back to Dashboard</button>
+    </div>
+
+</div>
+<script  src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

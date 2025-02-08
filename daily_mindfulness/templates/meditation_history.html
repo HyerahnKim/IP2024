@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+<body>
+      <div class="screen">
+          <h1>Your Meditation History</h1>
+          <div class="box green-box">
+              <table id="meditationLogs">
+                  <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Duration (mins)</th>
+                            <th>Type</th>
+                        </tr>
+                  </thead>
+                <tbody>
+                    <!-- Logs will be dynamically inserted here -->
+                </tbody>
+              </table>
+
+          </div>
+           <div class="chart-container box green-box">
+               <canvas id="meditationChart" width="400" height="200"></canvas>
+           </div>
+          <button id="backToDashboard">Back to Dashboard</button>
+      </div>
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

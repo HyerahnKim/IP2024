@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8acfe6a0-3c41-41d8-b66f-8c18893ae273" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/daily_mindfulness.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/core/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/core/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/quotes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/templates/dataset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/templates/log_meditation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/daily_mindfulness/templates/meditation_history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2q73VzrPQuvqvnWFED57esTszvR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.settings.executor": "Run",
+    "Python.views.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu\home\heran\projects\individual_project\daily_mindfulness\daily_mindfulness\static\js" />
+      <recent name="\\wsl.localhost\Ubuntu\home\heran\projects\individual_project\daily_mindfulness\daily_mindfulness\static\css" />
+      <recent name="\\wsl.localhost\Ubuntu\home\heran\projects\individual_project\daily_mindfulness\daily_mindfulness\templates" />
+      <recent name="\\wsl.localhost\Ubuntu\home\heran\projects\individual_project\daily_mindfulness\daily_mindfulness\template" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="daily_mindfulness" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/daily_mindfulness/core" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/daily_mindfulness/core/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8acfe6a0-3c41-41d8-b66f-8c18893ae273" name="Changes" comment="" />
+      <created>1733999813902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733999813902</updated>
+      <workItem from="1733999815320" duration="12601000" />
+      <workItem from="1734074310270" duration="1991000" />
+      <workItem from="1734248663322" duration="15658000" />
+      <workItem from="1734453728314" duration="11293000" />
+      <workItem from="1734514684146" duration="17809000" />
+      <workItem from="1734546741659" duration="4000" />
+      <workItem from="1736923767543" duration="92000" />
+      <workItem from="1737554361590" duration="11842000" />
+      <workItem from="1737633932092" duration="4036000" />
+      <workItem from="1738998798222" duration="10274000" />
+      <workItem from="1739013705399" duration="6877000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/daily_mindfulness$views.coverage" NAME="views Coverage Results" MODIFIED="1739014355282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/daily_mindfulness/core" />
+    <SUITE FILE_PATH="coverage/daily_mindfulness$settings.coverage" NAME="settings Coverage Results" MODIFIED="1734251506441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/daily_mindfulness/daily_mindfulness" />
+  </component>
+</project>

@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="screen cream-box">
+      <div class="intro">
+          <h1>Daily Mindfulness</h1>
+          <h3>In a world filled with distractions and constant demands, mindfulness offers a way to reconnect with the present moment and find clarity amidst the noise.
+         </h3>
+      </div>
+      <div class="box green-box">
+          <p id="quote">Loading your daily quote...</p>
+          <p id="source"></p>
+      </div>
+    <!-- Logged-Out Section -->
+      <div class="box blue-box action-box" id="loggedOutSection">
+              <h3>Welcome!<br>Please log in to explore your meditation history.</h3>
+              <button id="goToLogin">Now Login</button>
+      </div>
+          <!-- Logged-In Section -->
+      <div class="box blue-box action-box" id="loggedInSection">
+              <h3 id="welcomeMessage">
+              </h3>
+              <button id="logMeditation" class="nav-button">Meditate Now</button>
+              <button id="viewHistory" class="nav-button">Meditation History</button>
+              <button id="logout" class="logout-button">Logout</button>
+      </div>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
